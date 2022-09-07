@@ -1,5 +1,7 @@
+import collections
+
 graph = {
-    'a': ['b', 'c'],
+    'a': ['c', 'b'],
     'b': ['d'],
     'c': ['e'],
     'd': ['f'],
@@ -7,20 +9,20 @@ graph = {
     'f': []
 }
 
-res = []
 
-
-# iterative depth first search
+# iterative depth first search for graph
 
 def dfs(graphs, source):
     stack = [source]
     while stack:
         current = stack.pop()
         print(current)
+
         for neighbour in graphs[current]:
             stack.append(neighbour)
 
-# recursive depth first search of the graph
+
+# Recursive deph first search for graphs
 
 
 def dfs(graphs, source):
@@ -29,4 +31,18 @@ def dfs(graphs, source):
         dfs(graphs, neighbour)
 
 
-print(dfs(graph, 'a'))
+# Breadth first approach for graphs
+
+q = collections.deque()
+
+
+def bfs(graphs, source):
+    q.append(source)
+    while q:
+        current = q.popleft()
+        print(current)
+        for neighbour in graphs[current]:
+            q.appendleft(neighbour)
+
+
+print(bfs(graph, 'a'))
