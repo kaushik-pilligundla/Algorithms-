@@ -9,15 +9,16 @@ graph = {
 
 res = []
 
+
 # iterative depth first search
 
-# def dfs(graphs, source):
-#     stack = [source]
-#     while stack:
-#         current = stack.pop()
-#         print(current)
-#         for neighbour in graphs[current]:
-#             stack.append(neighbour)
+def dfs(graphs, source):
+    stack = [source]
+    while stack:
+        current = stack.pop()
+        print(current)
+        for neighbour in graphs[current]:
+            stack.append(neighbour)
 
 # recursive depth first search of the graph
 
@@ -27,5 +28,5 @@ def dfs(graphs, source):
     for neighbour in graphs[source]:
         dfs(graphs, neighbour)
 
-        
+
 print(dfs(graph, 'a'))
